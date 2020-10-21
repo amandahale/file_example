@@ -25,23 +25,14 @@ puts "#{employee2[:first_name]} #{employee2[:last_name]} makes #{employee2[:sala
 
 #Represent an employee as a class instance
 class Employee
-  def initialize(input_first_name, input_last_name, input_salary, input_active)
-    @first_name = input_first_name
-    @last_name = input_last_name
-    @salary = input_salary
-    @active = input_active
-  end
+  attr_reader :first_name, :last_name, :active
+  attr_writer :active
 
-  def first_name
-    @first_name   
-  end
-
-  def last_name
-    @last_name
-  end
-
-  def active
-    @active
+  def initialize(input_options)
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @salary = input_options[:salary]
+    @active = input_options[:active]
   end
 
   def print_info
@@ -52,13 +43,10 @@ class Employee
     @salary = 1.05 * @salary
   end
 
-  def active=(input_active)
-    @active = input_active
-  end
 end
 
-employee1 = Employee.new("Majora", "Carter", 80000, true)
-employee2 = Employee.new("Danilo", "Campos", 70000, true)
+employee1 = Employee.new({first_name: "Majora", last_name: "Carter", salary: 80000, active: true})
+employee2 = Employee.new(last_name: "Campos", first_name: "Danilo", salary: 70000, active: true)
 employee1.print_info
 employee2.print_info
 employee2.give_annual_raise
