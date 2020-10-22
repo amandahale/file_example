@@ -30,13 +30,7 @@ class Manager < Employee
     puts "Sending email..."
     #use an email sending library
     puts "Email sent!"
-  end
-
-  def print_info
-    puts "#{first_name} #{last_name} makes #{@salary} a year and manages #{@employees}."
-    
-  end
-
+  end 
 end
 
 employee1 = Employee.new({first_name: "Majora", last_name: "Carter", salary: 80000, active: true})
@@ -45,3 +39,4 @@ employee2 = Employee.new(last_name: "Campos", first_name: "Danilo", salary: 7000
 manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_report
+p manager
